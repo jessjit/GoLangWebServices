@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"Loginmodule/RowMappers"
 	"Loginmodule/services"
 	"Loginmodule/vo"
 	"encoding/json"
@@ -10,13 +11,17 @@ import (
 
 func Signuphandler(w http.ResponseWriter, r *http.Request) {
 	var user vo.User
-	err := json.NewDecoder(r.Body).Decode(&user)
-	fmt.Println(user)
+	fmt.Println("R's body")
+	fmt.Println(r.Body)
+	dbuser := RowMappers.MapusertoDbuser(&user)
+	err := json.NewDecoder(r.Body).Decode(&dbuser)
 	if err != nil {
 		panic(err)
 	}
-	token := services.Signupservice(&user)
-	if token != "null" && token != "user already exits" {
+	fmt.Println(user)
+	fmt.Println(dbuser)
+	token := services.Signupservice(&dbuser)
+	if token != vo.Null && token != vo.Exist {
 		json.NewEncoder(w).Encode(token)
 	} else {
 		fmt.Println(token)

@@ -8,25 +8,29 @@ import (
 	jwt "github.com/dgrijalva/jwt-go"
 )
 
-func Signupservice(user *vo.User) string {
+func Signupservice(dbuser *vo.DbUser) string {
 	var userList vo.Usersobject
-	userList.SetUsers(repositories.FindUserByName(user.Getusername()))
+	userList.SetUsers(repositories.FindUserByName(dbuser.Username))
 	if len(userList.GetUsers()) > 0 {
-		return "user already exits"
+		return vo.Exist
 	}
-	b := repositories.Insertdb(user)
+	b := repositories.Insertdb(dbuser)
 	if b == true {
 		token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
-			"username": user.Getusername(),
-			"password": user.Getuserpassword(),
+			"username": dbuser.Username,
+			"password": dbuser.Password,
 		})
-		user.Settoken(token)
+		tokenString, err := token.SignedString([]byte("secret"))
+		dbuser.Token = tokenString
+		if err != nil {
+			panic(err)
+		}
 		tokenString, error := token.SignedString([]byte("secret"))
 		if error != nil {
 			fmt.Println(error)
 		}
 		return tokenString
 	} else {
-		return "null"
+		return vo.Null
 	}
 }

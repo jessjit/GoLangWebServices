@@ -10,29 +10,25 @@ import (
 
 //Loginhandler
 func Loginservice(object *vo.User) string {
-	fmt.Print(object)
-	fmt.Println(object.Getusername())
 	var err error
 	var userList vo.Usersobject
 	userList.SetUsers(repositories.FindUserByName(object.Getusername()))
-	fmt.Println(len("userList.GetUsers()"))
-	fmt.Println(userList.GetUsers())
+	fmt.Println(userList)
 	if len(userList.GetUsers()) > 1 || len(userList.GetUsers()) == 0 {
 		err = nil
-		return "no such user exists"
-		//panic(err)
+		return vo.Exist
 	} else {
-		fmt.Print("userList.GetUsers()[0].Getuserpassword()")
-		fmt.Println(userList.GetUsers())
-
-		fmt.Print("object.Getuserpassword()")
-		fmt.Println(object.Getuserpassword())
 		if (userList.GetUsers())[0].Getuserpassword() == object.Getuserpassword() {
 			token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
 				"username": object.Getusername(),
 				"password": object.Getuserpassword(),
 			})
-			object.Settoken(token)
+			tokenString, err := token.SignedString([]byte("secret"))
+			if err != nil {
+				fmt.Println(err)
+			}
+			object.Settoken(tokenString)
+			repositories.Settokendb(object.Getusername(), tokenString)
 			tokenString, error := token.SignedString([]byte("secret"))
 			if error != nil {
 				fmt.Print(error)
@@ -41,8 +37,7 @@ func Loginservice(object *vo.User) string {
 		} else {
 			err = nil
 			fmt.Print(err)
-			return "password mismatch"
-			//panic(err)
+			return vo.Mismatch
 		}
 	}
 }

@@ -12,17 +12,12 @@ import (
 
 func Loginhandler(w http.ResponseWriter, r *http.Request) {
 	header := r.Header
-	var object vo.User
-	fmt.Print("Header")
-	fmt.Println(r.Header)
-	object.Setusername(header["Username"][0])
-	object.Setpassword(header["Password"][0])
-	fmt.Print("object")
+	object := vo.CreateUserObj(header["Username"][0], header["Password"][0])
 	fmt.Println(object)
-	token := services.Loginservice(&object)
-	if token != "null" && token != "password mismatch" && token != "no such user exists" {
-		json.NewEncoder(w).Encode(token)
+	tokenString := services.Loginservice(&object)
+	if tokenString != vo.Null && tokenString != vo.Mismatch && tokenString != vo.Exist {
+		json.NewEncoder(w).Encode(tokenString)
 	} else {
-		fmt.Println(token)
+		fmt.Println(tokenString)
 	}
 }

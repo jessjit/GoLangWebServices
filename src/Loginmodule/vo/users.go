@@ -9,5 +9,5 @@ func (object Usersobject) GetUsers() []User {
 }
 
 func (object *Usersobject) SetUsers(users []User) {
-	(object).users = users
+	object.users = users
 }

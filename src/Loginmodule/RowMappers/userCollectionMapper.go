@@ -37,11 +37,40 @@ func MapDbUserToUser(dbUser []vo.DbUser) []vo.User {
 			if dbUser[i].Age != 0 {
 				userTemp.Setuserage(dbUser[i].Age)
 			}
+			if dbUser[i].Token != "" {
+				userTemp.Settoken(dbUser[i].Token)
+			}
 			fmt.Print("userTemp")
 			fmt.Println(userTemp)
 			userList = append(userList, userTemp)
 		}
 	}
-
 	return userList
+}
+
+func MapusertoDbuser(user *vo.User) vo.DbUser {
+	var dbuser vo.DbUser
+	dbuser.Id = bson.NewObjectId()
+	if user.Getusername() != "" {
+		dbuser.Username = user.Getusername()
+	}
+	if user.Getuserpassword() != "" {
+		dbuser.Password = user.Getuserpassword()
+	}
+	if user.Getemailid() != "" {
+		dbuser.Emailid = user.Getemailid()
+	}
+	if user.Getfirstname() != "" {
+		dbuser.Firstname = user.Getfirstname()
+	}
+	if user.Getlastname() != "" {
+		dbuser.Lastname = user.Getlastname()
+	}
+	if user.Getuserage() != 0 {
+		dbuser.Age = user.Getuserage()
+	}
+	if user.Gettoken() != "" {
+		dbuser.Token = user.Gettoken()
+	}
+	return dbuser
 }

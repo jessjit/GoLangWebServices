@@ -1,19 +1,24 @@
 package vo
 
 import (
-	jwt "github.com/dgrijalva/jwt-go"
 	"gopkg.in/mgo.v2/bson"
 )
 
 type User struct {
-	id        bson.ObjectId `json:"id" bson:"_id"`
-	username  string        `json:"username" bson:"username"`
+	id        bson.ObjectId `json:"id"`
+	username  string        `json:"username"`
 	password  string        `json:"password"`
 	emailid   string        `json:"emailid"`
 	firstname string        `json:"firstname"`
 	lastname  string        `json:"lastname"`
 	age       int           `json:"age"`
-	token     *jwt.Token    `json:"token"`
+	token     string        `json:"token"`
+}
+
+func CreateUserObj(name string, word string) (usr User) {
+	usr.username = name
+	usr.password = word
+	return usr
 }
 
 func (usr User) Getuserid() bson.ObjectId {
@@ -44,7 +49,7 @@ func (usr User) Getuserage() int {
 	return usr.age
 }
 
-func (usr User) Gettoken() *jwt.Token {
+func (usr User) Gettoken() string {
 	return usr.token
 }
 
@@ -76,6 +81,6 @@ func (usr *User) Setuserage(age int) {
 	usr.age = age
 }
 
-func (usr *User) Settoken(token *jwt.Token) {
+func (usr *User) Settoken(token string) {
 	usr.token = token
 }
