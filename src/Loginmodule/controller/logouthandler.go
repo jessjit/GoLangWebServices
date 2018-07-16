@@ -5,6 +5,7 @@ import (
 	"Loginmodule/services"
 	"Loginmodule/vo"
 	"fmt"
+	"log"
 	"net/http"
 
 	jwt "github.com/dgrijalva/jwt-go"
@@ -12,32 +13,33 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
+//Logouthandler
 func Logouthandler(w http.ResponseWriter, r *http.Request) {
 	auth := r.Header.Get("Authorization")
+	log.Println("Authorization:")
+	log.Println(auth)
 	valid := services.Logoutservice(auth)
-	fmt.Println("Valid")
-	fmt.Println(valid)
 	context.Set(r, "decoded", valid.Claims)
 	decoded := context.Get(r, "decoded")
-	fmt.Println("decoded")
-	fmt.Println(decoded)
 	var userr vo.DbUser
 	mapstructure.Decode(decoded.(jwt.MapClaims), &userr)
+	log.Println("User: ")
+	log.Println(userr)
 	tokenString, error := valid.SignedString([]byte("secret"))
 	userr.Token = tokenString
 	if error != nil {
-		panic(error)
+		log.Panic(error)
 	}
-	fmt.Println(userr)
-	fmt.Println(userr.Username)
 	var userList vo.Usersobject
 	userList.SetUsers(repositories.FindUserByName(userr.Username))
-	fmt.Println("Userlist")
-	fmt.Println(userList)
+	log.Println("Userlist: ")
+	log.Println(userList)
 	if len(userList.GetUsers()) != 1 {
+		log.Panic(error)
 		fmt.Println("error")
 	} else {
 		repositories.Removedb(userList.GetUsers()[0].Getuserid())
-		fmt.Println("logout success")
+		log.Println("Logout successful")
+		fmt.Println("Logout successful")
 	}
 }

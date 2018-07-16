@@ -2,20 +2,22 @@ package data
 
 import (
 	"fmt"
+	"log"
 
 	"gopkg.in/mgo.v2"
 )
 
 var (
-	Session    *mgo.Session
+	session    *mgo.Session
 	Collection *mgo.Collection
 )
 
 func Activatedb(db string, col string) {
-	Session, err := mgo.Dial("localhost")
+	session, err := mgo.Dial("localhost")
 	if err != nil {
 		panic(err)
 	}
-	Collection = Session.DB(db).C(col)
-	fmt.Println("DB running")
+	Collection = session.DB(db).C(col)
+	log.Println("Database active and running")
+	fmt.Println("Database actice and running")
 }

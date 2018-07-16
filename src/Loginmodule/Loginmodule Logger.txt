@@ -1,0 +1,33 @@
+
+2018/07/15 14:29:47 Server running
+2018/07/15 14:31:02 Header: 
+2018/07/15 14:31:02 map[Accept:[*/*] Accept-Encoding:[gzip, deflate] Username:[Ayushi] User-Agent:[PostmanRuntime/7.1.5] Postman-Token:[ef8a2f9c-44a7-41f2-8da9-99aff16348cd] Content-Length:[0] Connection:[keep-alive] Password:[aaaa] Cache-Control:[no-cache]]
+2018/07/15 14:31:02 Object created: 
+2018/07/15 14:31:02 { Ayushi aaaa    0 }
+2018/07/15 14:31:02 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXNzd29yZCI6ImFhYWEiLCJ1c2VybmFtZSI6IkF5dXNoaSJ9.raU_H04f2nAMeANJj8OhCGKLzhtWSauI8xb1QG79npw
+2018/07/15 14:31:02 Token created: 
+2018/07/15 14:31:02 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXNzd29yZCI6ImFhYWEiLCJ1c2VybmFtZSI6IkF5dXNoaSJ9.raU_H04f2nAMeANJj8OhCGKLzhtWSauI8xb1QG79npw
+2018/07/15 14:31:42 Authorization:
+2018/07/15 14:31:42 Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXNzd29yZCI6ImFhYWEiLCJ1c2VybmFtZSI6IkF5dXNoaSJ9.raU_H04f2nAMeANJj8OhCGKLzhtWSauI8xb1QG79npw
+2018/07/15 14:31:42 Bearer Authorization: 
+2018/07/15 14:31:42 [Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXNzd29yZCI6ImFhYWEiLCJ1c2VybmFtZSI6IkF5dXNoaSJ9.raU_H04f2nAMeANJj8OhCGKLzhtWSauI8xb1QG79npw]
+2018/07/15 14:31:42 &{eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXNzd29yZCI6ImFhYWEiLCJ1c2VybmFtZSI6IkF5dXNoaSJ9.raU_H04f2nAMeANJj8OhCGKLzhtWSauI8xb1QG79npw 0xc420092400 map[alg:HS256 typ:JWT] map[password:aaaa username:Ayushi] raU_H04f2nAMeANJj8OhCGKLzhtWSauI8xb1QG79npw true}
+2018/07/15 14:31:42 User: 
+2018/07/15 14:31:42 {ObjectIdHex("") Ayushi aaaa    0 }
+2018/07/15 14:31:42 Userlist: 
+2018/07/15 14:31:42 {[{[5çëTä_šòo# Ayushi aaaa ayushi@gmail.com ayushiiii ayushiiii 1 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXNzd29yZCI6ImFhYWEiLCJ1c2VybmFtZSI6IkF5dXNoaSJ9.raU_H04f2nAMeANJj8OhCGKLzhtWSauI8xb1QG79npw}]}
+2018/07/15 14:31:42 Token deleted
+2018/07/15 14:31:42 Logout successful
+2018/07/15 14:32:49 Object Inserted
+2018/07/15 14:32:49 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXNzd29yZCI6Imt2enNqZHNvIiwidXNlcm5hbWUiOiJoYWR2YSJ9.2FgbqjjFnppQU_0t5B-FdlHn61t49pMRK-zhs8bwWAs
+2018/07/15 14:33:40 Authorization:
+2018/07/15 14:33:40 Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXNzd29yZCI6Imt2enNqZHNvIiwidXNlcm5hbWUiOiJoYWR2YSJ9.2FgbqjjFnppQU_0t5B-FdlHn61t49pMRK-zhs8bwWAs
+2018/07/15 14:33:40 Bearer Authorization: 
+2018/07/15 14:33:40 [Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXNzd29yZCI6Imt2enNqZHNvIiwidXNlcm5hbWUiOiJoYWR2YSJ9.2FgbqjjFnppQU_0t5B-FdlHn61t49pMRK-zhs8bwWAs]
+2018/07/15 14:33:40 &{eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXNzd29yZCI6Imt2enNqZHNvIiwidXNlcm5hbWUiOiJoYWR2YSJ9.2FgbqjjFnppQU_0t5B-FdlHn61t49pMRK-zhs8bwWAs 0xc420092400 map[alg:HS256 typ:JWT] map[password:kvzsjdso username:hadva] 2FgbqjjFnppQU_0t5B-FdlHn61t49pMRK-zhs8bwWAs true}
+2018/07/15 14:33:40 User: 
+2018/07/15 14:33:40 {ObjectIdHex("") hadva kvzsjdso    0 }
+2018/07/15 14:33:40 Userlist: 
+2018/07/15 14:33:40 {[{[K¹åxGd„@E hadva kvzsjdso bcgddd@gmail.com Bhura Bhura 14 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXNzd29yZCI6Imt2enNqZHNvIiwidXNlcm5hbWUiOiJoYWR2YSJ9.2FgbqjjFnppQU_0t5B-FdlHn61t49pMRK-zhs8bwWAs}]}
+2018/07/15 14:33:40 Token deleted
+2018/07/15 14:33:40 Logout successful
